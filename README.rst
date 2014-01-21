@@ -12,7 +12,7 @@ Who Uses sc2reader?
 
 sc2reader is currently powering:
 
-* Websites: `ggtracker.com`_, `gamereplays.org`_, `sc2companion.com`_
+* Websites: `ggtracker.com`_, `gamereplays.org`_, `sc2companion.com`_, `spawningtool.com`
 * Tools: `The Core`_
 * Experiments: `Midi Conversion`_
 
@@ -22,6 +22,7 @@ If you use sc2reader and you would like your tool, site, project, or implementat
 .. _ggtracker.com: http://ggtracker.com
 .. _gamereplays.org: http://www.gamereplays.org/starcraft2/
 .. _sc2companion.com: http://sc2companion.com
+.. _spawningtool.com: http://spawningtool.com
 .. _The Core: http://www.teamliquid.net/forum/viewmessage.php?topic_id=341878
 .. _Midi Conversion: https://github.com/obohrer/sc2midi
 
@@ -47,7 +48,7 @@ Replays can be parsed for the following general types of information:
 - Unfiltered Unit commands (attack, move, train, build, psi storm, etc)
 - Camera Movements for all players and observers.
 
-Replays from release 2.0.8 on ward make additional state information available:
+Replays from release 2.0.8 and after make additional state information available:
 
 - Unit states - creation time, positions, and deaths times
 - Player resource stats - collection rates/unspent totals

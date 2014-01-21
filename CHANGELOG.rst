@@ -2,7 +2,7 @@ CHANGELOG
 ============
 
 
-0.6.5 - December ?? 2013
+0.6.5 - January 21st 2013
 ---------------------------
 
 * Deprecated unit.killed_by in favor of unit.killing_player
@@ -13,7 +13,7 @@ CHANGELOG
 * Deprecated UnitDiedEvent.killer_pid in favor of UnitDiedEvent.killing_player_id
 * Deprecated UnitDiedEvent.killer in favor of UnitDiedEvent.killing_player
 * Use generic UnitType and Ability classes for data. This means no more unit._type_class.__class__.__name__. But hopefully people were not doing that anyway.
-* Now a CorruptTrackerFileError is raised when the tracker file is corrupted (generally only older resume_from_replay replays)
+* Now a CorruptTrackerFileError is raised when the tracker file is corrupted (only for pre 2.0.10 replays)
 * Removed the defunct replay.player_names attribute.
 * Removed the defunct replay.events_by_type attribute.
 * Removed the defunct replay.other_people attribute.
@@ -22,7 +22,6 @@ CHANGELOG
    * event.to_allies - true if ping seen by allies
    * event.to_observers - true if ping seen by observers
    * event.location - tuple of (event.x, event.y)
-
 
 0.6.4 - September 22nd 2013
 ---------------------------
