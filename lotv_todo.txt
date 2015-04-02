@@ -1,1 +1,2 @@
 * New Datapack required for LotV Build
+* Add mappings for new lobby properties (attributes)
