@@ -27,7 +27,7 @@ class InitDataReader(object):
                 test_auto=data.read_bool(),
                 examine=data.read_bool() if replay.base_build >= 21955 else None,
                 custom_interface=data.read_bool() if replay.base_build >= 24764 else None,
-                test_type=data.read_bits(2) if replay.base_build >= 34784 else None,
+                test_type=data.read_uint32() if replay.base_build >= 34784 else None,
                 observe=data.read_bits(2),
                 hero=data.read_aligned_string(data.read_bits(9)) if replay.base_build >= 34784 else None,
                 skin=data.read_aligned_string(data.read_bits(9)) if replay.base_build >= 34784 else None,
@@ -110,7 +110,7 @@ class InitDataReader(object):
                         type_struct=data.read_aligned_string(data.read_bits(9)),
                     ) for i in range(data.read_bits(4))] if replay.base_build >= 34784 else None,
                     working_set_slot_id=data.read_uint8() if replay.base_build >= 24764 and data.read_bool() else None,
-                    rewards=[data.read_uint32() for i in range(data.read_bits(17 if replay.base_build > 34784 else 6 if replay.base_build >= 24764 else 5))],
+                    rewards=[data.read_uint32() for i in range(data.read_bits(17 if replay.base_build >= 34784 else 6 if replay.base_build >= 24764 else 5))],
                     toon_handle=data.read_aligned_string(data.read_bits(7)) if replay.base_build >= 17266 else None,
                     licenses=[data.read_uint32() for i in range(data.read_bits(9))] if replay.base_build >= 19132 else [],
                     tandem_leader_user_id=data.read_bits(4) if replay.base_build >= 34784 and data.read_bool() else None,
@@ -1572,7 +1572,7 @@ class GameEventsReader_34784(GameEventsReader_27950):
     def command_manager_state_event(self, data):
         return dict(
             state=data.read_bits(2),
-            sequence=data.read_uint32() if data.read_bool() else None,
+            sequence=data.read_uint32() + 1 if data.read_bool() else None,
         )
 
     def command_update_target_point_event(self, data):
@@ -1631,7 +1631,9 @@ class GameEventsReader_34784(GameEventsReader_27950):
                         z=data.read_uint32() - 2147483648,
                     ),
                 )),
-                3: lambda: ('Data', dict(data=data.read_uint32())),
+                3: lambda: ('Data', dict(
+                    data=data.read_uint32()
+                )),
             }[data.read_bits(2)](),
             sequence=data.read_uint32() + 1,
             other_unit_tag=data.read_uint32() if data.read_bool() else None,
@@ -1654,6 +1656,7 @@ class GameEventsReader_34784(GameEventsReader_27950):
             base_build_num=data.read_uint32(),
             build_num=data.read_uint32(),
             version_flags=data.read_uint32(),
+            hotkey_profile=data.read_aligned_string(data.read_bits(9)),
             use_ai_beacons=None,
         )
 
@@ -1678,7 +1681,7 @@ class GameEventsReader_34784(GameEventsReader_27950):
             pitch=data.read_uint16() if data.read_bool() else None,
             yaw=data.read_uint16() if data.read_bool() else None,
             reason=data.read_uint8() - 128 if data.read_bool() else None,
-            m_follow=data.read_bool(),
+            follow=data.read_bool(),
         )
 
     def trigger_hotkey_pressed_event(self, data):
