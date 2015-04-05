@@ -1,2 +1,5 @@
 * New Datapack required for LotV Build
-* Add mappings for new lobby properties (attributes)
+* Add mappings for new lobby properties (attributes) -> Requires s2gs files.
+* Create Event structures for all the new events.
+* Figure out how archon mode is recorded.
+* Use some of these new initData flags
