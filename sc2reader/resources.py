@@ -337,12 +337,12 @@ class Replay(Resource):
                 self.region = 'sea'
 
             dependency_hashes = [d.hash for d in details['cache_handles']]
-            if hashlib.sha256('Standard Data: Swarm.SC2Mod'.encode('utf8')).hexdigest() in dependency_hashes:
+            if hashlib.sha256('Standard Data: Void.SC2Mod'.encode('utf8')).hexdigest() in dependency_hashes:
+                self.expansion = 'LotV'
+            elif hashlib.sha256('Standard Data: Swarm.SC2Mod'.encode('utf8')).hexdigest() in dependency_hashes:
                 self.expansion = 'HotS'
             elif hashlib.sha256('Standard Data: Liberty.SC2Mod'.encode('utf8')).hexdigest() in dependency_hashes:
                 self.expansion = 'WoL'
-            elif hashlib.sha256('Standard Data: Void.SC2Mod'.encode('utf8')).hexdigest() in dependency_hashes:
-                self.expansion = 'LotV'
             else:
                 self.expansion = ''
 
