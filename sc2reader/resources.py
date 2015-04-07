@@ -309,6 +309,16 @@ class Replay(Resource):
             engine.run(self)
 
     def load_details(self):
+        if 'replay.initData' in self.raw_data:
+            initData = self.raw_data['replay.initData']
+            options = initData['game_description']['game_options']
+            self.amm = options['amm']
+            self.ranked = options['ranked']
+            self.competitive = options['competitive']
+            self.practice = options['practice']
+            self.cooperative = options['cooperative']
+            self.battle_net = options['battle_net']
+
         if 'replay.attributes.events' in self.raw_data:
             # Organize the attribute data to be useful
             self.attributes = defaultdict(dict)
