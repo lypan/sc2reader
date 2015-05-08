@@ -318,6 +318,7 @@ class Replay(Resource):
             self.practice = options['practice']
             self.cooperative = options['cooperative']
             self.battle_net = options['battle_net']
+            self.hero_duplicates_allowed = options['hero_duplicates_allowed']
 
         if 'replay.attributes.events' in self.raw_data:
             # Organize the attribute data to be useful

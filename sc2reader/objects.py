@@ -116,6 +116,15 @@ class Entity(object):
         #: A flag marking this entity as a referee (can talk to players)
         self.is_referee = slot_data['observe'] == 2
 
+        #:
+        self.hero_name = slot_data['hero']
+
+        #:
+        self.hero_skin = slot_data['skin']
+
+        #:
+        self.hero_mount = slot_data['mount']
+
         #: The unique Battle.net account identifier in the form of
         #: <region_id>-S2-<subregion>-<toon_id>
         self.toon_handle = slot_data['toon_handle']
