@@ -170,7 +170,7 @@ class DetailsReader(object):
                 observe=p[7],
                 result=p[8],
                 working_set_slot=p[9] if replay.build >= 24764 else None,
-                hero=p[10] if replay.build >= 34784 and 10 in p else None,
+                hero=p[10] if replay.build >= 34784 and 10 in p else None,  # hero appears to be present in Heroes replays but not StarCraft 2 replays
             ) for p in details[0]],
             map_name=details[1].decode('utf8'),
             difficulty=details[2],
