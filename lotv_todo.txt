@@ -1,3 +1,4 @@
 * New Datapack required for LotV Build
+** the current base build is a copy of HotS 24764
 * Create Event structures for all the new events.
 * Figure out how archon mode is recorded.
