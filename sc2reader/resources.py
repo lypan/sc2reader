@@ -589,10 +589,13 @@ class Replay(Resource):
         self.register_datapack(datapacks['WoL']['19458'], lambda r: r.expansion == 'WoL' and 19458 <= r.build < 22612)
         self.register_datapack(datapacks['WoL']['22612'], lambda r: r.expansion == 'WoL' and 22612 <= r.build < 24944)
         self.register_datapack(datapacks['WoL']['24944'], lambda r: r.expansion == 'WoL' and 24944 <= r.build)
+
         self.register_datapack(datapacks['HotS']['base'], lambda r: r.expansion == 'HotS' and r.build < 23925)
         self.register_datapack(datapacks['HotS']['23925'], lambda r: r.expansion == 'HotS' and 23925 <= r.build < 24247)
         self.register_datapack(datapacks['HotS']['24247'], lambda r: r.expansion == 'HotS' and 24247 <= r.build <= 24764)
         self.register_datapack(datapacks['HotS']['24764'], lambda r: r.expansion == 'HotS' and 24764 <= r.build)
+
+        self.register_datapack(datapacks['LotV']['base'], lambda r: r.expansion == 'LotV' and 34784 <= r.build)
 
     # Internal Methods
     def _get_reader(self, data_file):
